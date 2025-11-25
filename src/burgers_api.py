@@ -17,7 +17,7 @@ class BurgersAPI:
 
         response = requests.post(url, json=payload)
         return response
-    
+    @allure.step('Авторизация с использованием логина и пароля')
     def auth_user(self, email=None, password=None):
         url = Url.BASE_URL + Url.AUTH_USER
         payload = {}
@@ -30,6 +30,7 @@ class BurgersAPI:
         response = requests.post(url, json=payload)
         return response
     
+    @allure.step('Удаление пользователя')
     def delete_user(self, acccess_token=None):
         url = Url.BASE_URL + Url.DELETE_USER
         headers = {}
@@ -40,6 +41,7 @@ class BurgersAPI:
         response = requests.delete(url, headers=headers)
         return response
     
+    @allure.step('Создание заказа')
     def create_order(self, acccess_token=None, ingredients=None):
         url = Url.BASE_URL + Url.ORDERS_ENDPOINT
         headers = {}
@@ -53,6 +55,7 @@ class BurgersAPI:
         response = requests.post(url, json=payload, headers=headers)
         return response
     
+    @allure.step('Получение списка ингридиентов')
     def get_ingredients_list(self):
         url = Url.BASE_URL + Url.IMGREDIENTS_ENDPOINT
 
