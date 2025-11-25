@@ -1,6 +1,6 @@
 import requests
 import allure
-from data import Url
+from urls import Url
 
 class BurgersAPI:
     @allure.step('Создаем пользователя')

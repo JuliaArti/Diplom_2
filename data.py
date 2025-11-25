@@ -1,11 +1,3 @@
-class Url:
-    BASE_URL = 'https://stellarburgers.education-services.ru'
-    CREATE_USER = "/api/auth/register"
-    AUTH_USER = "/api/auth/login"
-    DELETE_USER = "/api/auth/user"
-    ORDERS_ENDPOINT = "/api/orders"
-    IMGREDIENTS_ENDPOINT = "/api/ingredients"
-
 class RegisterUser:
     register_res_ok_code = 200
     register_res_body_ok = {
