@@ -16,6 +16,7 @@ def generate_user_data():
         login_user_resp = login_user.json()
         API.delete_user(login_user_resp["accessToken"])
 
+
 @pytest.fixture
 def create_registred_user(generate_user_data):
     email = generate_user_data[1]["email"]
@@ -23,7 +24,7 @@ def create_registred_user(generate_user_data):
     name = generate_user_data[1]["name"]
     registred_user_body = {'email': email, 'password': password, 'name': name}
     API.create_user(email, password, name)
-    yield [API, registred_user_body]
+    return [API, registred_user_body]  # Заменили yield на return
 
 @pytest.fixture
 def create_authenticated_user(create_registred_user):
@@ -34,4 +35,4 @@ def create_authenticated_user(create_registred_user):
     login_user_resp = login_user.json()
     access_token = login_user_resp["accessToken"]
     auth_user_body = {'email': email, 'password': password, 'name': name, 'access_token': access_token}
-    yield [API, auth_user_body]
+    return [API, auth_user_body]  # Заменили yield на return    

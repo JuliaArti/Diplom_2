@@ -46,3 +46,16 @@ class CreateOrder:
     }
 
     order_res_wrong_ingredients_hash_code = 500
+
+
+    test_order_success_with_auth_cases = [
+            (1, order_res_ok_code, order_res_body_ok, 
+             "с 1 ингредиентом и авторизацией"),
+            (3, order_res_ok_code, order_res_body_ok,
+             "с 3 ингредиентами и авторизацией"),
+    ]
+
+    test_order_with_incorrect_ingredients_cases = [
+            ([], order_res_no_ingredients_code, order_res_body_no_ingredients, "без ингредиентов"),
+            (["123wronghash53453"], order_res_wrong_ingredients_hash_code, None, "с неверным хешом ингредиента"),
+    ]
