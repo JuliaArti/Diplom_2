@@ -16,6 +16,15 @@ class RegisterUser:
         "message": "User already exists"
     }
 
+    test_register_user_no_data_cases = [
+        ("email,password"),
+        ("email,name"),
+        ("password,name"),
+        ("email"),
+        ("password"),
+        ("name")
+    ]
+
 class AuthUser:
     auth_res_ok_code = 200
     auth_res_body_ok = {
@@ -59,3 +68,4 @@ class CreateOrder:
             ([], order_res_no_ingredients_code, order_res_body_no_ingredients, "без ингредиентов"),
             (["123wronghash53453"], order_res_wrong_ingredients_hash_code, None, "с неверным хешом ингредиента"),
     ]
+
